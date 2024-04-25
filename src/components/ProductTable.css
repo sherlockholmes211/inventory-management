@@ -1,0 +1,42 @@
+.product-table {
+    width: 100%;
+    margin-top: 20px;
+  }
+  
+  .product-table th, .product-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #444;
+  }
+  
+  .product-table th {
+    text-align: left;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .product-table tr {
+    transition: background-color 0.3s ease;
+  }
+  
+  .product-table tr:hover {
+    background-color: #222;
+  }
+  
+  .product-table td {
+    color: #ddd;
+  }
+  
+  .action-icons {
+    display: flex;
+    justify-content: space-evenly;
+  }
+  
+  .action-icon {
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .action-icon:hover {
+    color: #4caf50;
+  }
+  

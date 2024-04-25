@@ -1,0 +1,21 @@
+.stat-card {
+    display: flex;
+    align-items: center;
+    /* Add more styles here */
+  }
+  
+  .stat-text {
+    margin-left: 10px;
+    /* Add more styles here */
+  }
+  
+  .stat-title {
+    font-size: 1em;
+    /* Add more styles here */
+  }
+  
+  .stat-value {
+    font-size: 2em;
+    /* Add more styles here */
+  }
+  

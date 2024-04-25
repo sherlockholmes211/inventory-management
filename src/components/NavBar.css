@@ -1,0 +1,26 @@
+.appbar {
+    background-color: #333;
+    box-shadow: none;
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .switch-base {
+    color: #fff;
+  }
+  
+  .switch-checked {
+    color: #4caf50;
+  }
+  
+  .switch-track {
+    background-color: #777;
+  }
+  
+  .switch-checked + & {
+    background-color: #4caf50;
+  }
+  

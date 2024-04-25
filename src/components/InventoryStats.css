@@ -1,0 +1,38 @@
+.inventory-stats {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    margin: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .stat-card {
+    display: flex;
+    align-items: center;
+    background-color: #333;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .stat-icon {
+    font-size: 30px;
+    margin-right: 12px;
+  }
+  
+  .stat-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .stat-title {
+    font-size: 16px;
+    color: #aaa;
+  }
+  
+  .stat-value {
+    font-size: 24px;
+    color: #ddd;
+  }
+  
