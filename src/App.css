@@ -4,7 +4,6 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #fff;
-  background-color: #121212;
 }
 
 a {
@@ -12,7 +11,6 @@ a {
   text-decoration: none;
 }
 
-/* Override Material-UI default padding */
 .MuiButton-root {
   padding: 8px 16px;
 }
