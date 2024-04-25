@@ -1,5 +1,5 @@
 import React from "react";
-import StatCard from "./StatCard";
+import StatCard from "../StatCard";
 import "./InventoryStats.css"; // Create a corresponding CSS file for styles
 
 const InventoryStats = () => {

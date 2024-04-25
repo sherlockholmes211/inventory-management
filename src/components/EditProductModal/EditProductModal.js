@@ -8,7 +8,7 @@ import {
   Button,
 } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { editItem } from "../features/inventory/inventorySlice";
+import { editItem } from "../../features/inventory/inventorySlice";
 
 export default function EditProductModal({ open, handleClose, productId }) {
   const dispatch = useDispatch();

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import ProductTable from "./ProductTable";
-import EditProductModal from "./EditProductModal";
-import { fetchInventory } from "../features/inventory/inventoryAPI";
+import ProductTable from "../ProductTable";
+import EditProductModal from "../EditProductModal";
+import { fetchInventory } from "../../features/inventory/inventoryAPI";
 
 export default function AdminView() {
   const dispatch = useDispatch();

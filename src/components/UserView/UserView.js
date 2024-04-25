@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import ProductTable from "./ProductTable";
-import { fetchInventory } from "../features/inventory/inventoryAPI";
+import ProductTable from "../ProductTable";
+import { fetchInventory } from "../../features/inventory/inventoryAPI";
 
 export default function UserView() {
   const dispatch = useDispatch();

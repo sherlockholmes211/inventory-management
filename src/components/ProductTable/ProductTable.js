@@ -12,7 +12,10 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 import { useDispatch } from "react-redux";
-import { deleteItem, disableItem } from "../features/inventory/inventorySlice";
+import {
+  deleteItem,
+  disableItem,
+} from "../../features/inventory/inventorySlice";
 import "./ProductTable.css";
 
 export default function ProductTable({ products, admin, onEditClick }) {
