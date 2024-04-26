@@ -7,7 +7,6 @@ export default function UserView() {
 
   return (
     <div>
-      <h1>User View</h1>
       <ProductTable products={products} admin={false} />
     </div>
   );
