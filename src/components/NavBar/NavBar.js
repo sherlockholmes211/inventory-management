@@ -5,11 +5,11 @@ import "./NavBar.css";
 
 export default function NavBar() {
   const navigate = useNavigate();
-  const [isAdmin, setIsAdmin] = React.useState(false);
+  const [isUser, setIsUser] = React.useState(false);
 
   const handleRoleChange = (event) => {
-    setIsAdmin(event.target.checked);
-    navigate(event.target.checked ? "/admin" : "/");
+    setIsUser(event.target.checked);
+    navigate(event.target.checked ? "/user" : "/");
   };
 
   return (
@@ -17,7 +17,7 @@ export default function NavBar() {
       <FormControlLabel
         control={
           <Switch
-            checked={isAdmin}
+            checked={isUser}
             onChange={handleRoleChange}
             name="roleSwitch"
           />

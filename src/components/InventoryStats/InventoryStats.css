@@ -1,6 +1,15 @@
 .inventory-stats {
-    display: flex;
-    justify-content: space-evenly;
-    padding: 20px;
-  }
+  padding: 20px;
+}
 
+.inventory-stats-title {
+  margin-left: 10px;
+  color:white;
+  font-size: xx-large;
+  margin-bottom: 20px;
+}
+
+.stats-container{
+  display: flex;
+  justify-content: space-evenly;
+}

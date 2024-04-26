@@ -14,8 +14,8 @@ function App() {
         <NavBar />
         <InventoryStats />
         <Routes>
-          <Route path="/admin" element={<AdminView />} />
-          <Route path="/" element={<UserView />} />
+          <Route path="/" element={<AdminView />} />
+          <Route path="/user" element={<UserView />} />
         </Routes>
       </Router>
     </Provider>
