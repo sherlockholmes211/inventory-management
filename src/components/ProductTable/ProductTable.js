@@ -50,11 +50,9 @@ export default function ProductTable({ products, admin, onEditClick }) {
             <TableCell>
               <div className="header-tag">Value</div>
             </TableCell>
-            {admin && (
-              <TableCell>
-                <div className="header-tag">Actions</div>
-              </TableCell>
-            )}
+            <TableCell>
+              <div className="header-tag">Actions</div>
+            </TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -68,24 +66,30 @@ export default function ProductTable({ products, admin, onEditClick }) {
               <TableCell>{product.price}</TableCell>
               <TableCell>{product.quantity}</TableCell>
               <TableCell>{product.value}</TableCell>
-              {admin && (
-                <TableCell>
-                  <IconButton
-                    onClick={() => {
-                      onEditClick(product.id);
-                      console.log("edit clicked");
-                    }}
-                  >
-                    <EditIcon color={"success"} />
-                  </IconButton>
-                  <IconButton onClick={() => handleDisable(product.id)}>
-                    <VisibilityOffIcon color={"primary"} />
-                  </IconButton>
-                  <IconButton onClick={() => handleDelete(product.id)}>
-                    <DeleteIcon color={"error"} />
-                  </IconButton>
-                </TableCell>
-              )}
+
+              <TableCell>
+                <IconButton
+                  onClick={() => {
+                    onEditClick(product.id);
+                    console.log("edit clicked");
+                  }}
+                  disabled={!!product.disabled || !admin}
+                >
+                  <EditIcon color={"success"} />
+                </IconButton>
+                <IconButton
+                  disabled={!!product.disabled || !admin}
+                  onClick={() => handleDisable(product.id)}
+                >
+                  <VisibilityOffIcon color={"primary"} />
+                </IconButton>
+                <IconButton
+                  disabled={!!product.disabled || !admin}
+                  onClick={() => handleDelete(product.id)}
+                >
+                  <DeleteIcon color={"error"} />
+                </IconButton>
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>

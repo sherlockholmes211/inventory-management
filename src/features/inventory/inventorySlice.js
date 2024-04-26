@@ -22,7 +22,7 @@ export const inventorySlice = createSlice({
     disableItem: (state, action) => {
       const index = state.items.findIndex((item) => item.id === action.payload);
       if (index !== -1) {
-        state.items[index].disabled = true;
+        state.items[index].disabled = !state.items[index].disabled;
       }
     },
   },

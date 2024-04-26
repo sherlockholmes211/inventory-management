@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import StatCard from "../StatCard";
 import {
   ShoppingCart,
@@ -6,15 +7,26 @@ import {
   RemoveShoppingCart,
   Waves,
 } from "@mui/icons-material";
-import "./InventoryStats.css"; // Create a corresponding CSS file for styles
+import "./InventoryStats.css";
 
 const InventoryStats = () => {
-  // Placeholder stats, replace with real data
+  const products = useSelector((state) => state.inventory.items);
+
+  const categories = new Set(products.map((item) => item.category));
+
   const stats = {
-    totalProducts: 9,
-    totalValue: 30550,
-    outOfStocks: 2,
-    numberOfCategories: 2,
+    totalProducts: products.length,
+    totalValue: products.reduce(
+      (acc, prod) => acc + parseInt(prod.value.replace("$", "")),
+      0
+    ),
+    outOfStocks: products.reduce((acc, prod) => {
+      if (prod.quantity === 0) {
+        return acc + 1;
+      }
+      return acc;
+    }, 0),
+    numberOfCategories: categories.size,
   };
 
   return (
