@@ -34,10 +34,20 @@ export default function ProductTable({ products, admin, onEditClick }) {
       <Table>
         <TableHead>
           <TableRow>
-            <TableCell>Product Name</TableCell>
-            <TableCell>Price</TableCell>
-            <TableCell>Quantity</TableCell>
-            {admin && <TableCell>Actions</TableCell>}
+            <TableCell>
+              <div className="header-tag">Product Name</div>
+            </TableCell>
+            <TableCell>
+              <div className="header-tag">Price</div>
+            </TableCell>
+            <TableCell>
+              <div className="header-tag">Quantity</div>
+            </TableCell>
+            {admin && (
+              <TableCell>
+                <div className="header-tag">Actions</div>
+              </TableCell>
+            )}
           </TableRow>
         </TableHead>
         <TableBody>
@@ -52,13 +62,13 @@ export default function ProductTable({ products, admin, onEditClick }) {
               {admin && (
                 <TableCell>
                   <IconButton onClick={() => onEditClick(product.id)}>
-                    <EditIcon />
+                    <EditIcon color={"success"} />
                   </IconButton>
                   <IconButton onClick={() => handleDelete(product.id)}>
-                    <DeleteIcon />
+                    <DeleteIcon color={"error"} />
                   </IconButton>
                   <IconButton onClick={() => handleDisable(product.id)}>
-                    <VisibilityOffIcon />
+                    <VisibilityOffIcon color={"primary"} />
                   </IconButton>
                 </TableCell>
               )}

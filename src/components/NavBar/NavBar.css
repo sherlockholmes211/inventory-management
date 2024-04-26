@@ -1,14 +1,10 @@
-.appbar {
-    background-color: #333;
-    box-shadow: none;
-  }
-  
-  .toolbar {
+  .nav-bar{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
+    padding: 0 24px;
   }
   
-  .switch-base {
+  /* .switch-base {
     color: #fff;
   }
   
@@ -22,5 +18,27 @@
   
   .switch-checked + & {
     background-color: #4caf50;
+  } */
+  .user-label {
+    padding: 5px 10px;
+    font-size: 16px;
+    font-family: Arial, sans-serif; /* Styling the font */
+    color: white
+  }
+  
+  .MuiSwitch-root {
+    color: rgba(255, 255, 255, 0.7); /* Light white color when off */
+  }
+  
+  .MuiSwitch-switchBase.Mui-checked {
+    color: #4caf50; /* Change to any color when checked */
+  }
+  
+  .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track {
+    background-color: #4caf50; /* Same as the thumb color when checked */
+  }
+  
+  .MuiSwitch-track {
+    background-color: rgba(255, 255, 255, 0.5); /* Light white track when off */
   }
   

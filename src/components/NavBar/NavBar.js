@@ -1,12 +1,7 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import {
-  AppBar,
-  Toolbar,
-  Button,
-  Switch,
-  FormControlLabel,
-} from "@mui/material";
+import { Switch, FormControlLabel } from "@mui/material";
+import "./NavBar.css";
 
 export default function NavBar() {
   const navigate = useNavigate();
@@ -18,27 +13,20 @@ export default function NavBar() {
   };
 
   return (
-    <AppBar position="static">
-      <Toolbar>
-        <Button color="inherit" component={Link} to="/">
-          Home
-        </Button>
-
-        {/* Add the switch to toggle between User and Admin views */}
-        <FormControlLabel
-          control={
-            <Switch
-              checked={isAdmin}
-              onChange={handleRoleChange}
-              name="roleSwitch"
-              color="default"
-            />
-          }
-          label={isAdmin ? "Admin" : "User"}
-          labelPlacement="start"
-          style={{ marginLeft: "auto" }} // Push switch to the far right
-        />
-      </Toolbar>
-    </AppBar>
+    <div className="nav-bar">
+      <FormControlLabel
+        control={
+          <Switch
+            checked={isAdmin}
+            onChange={handleRoleChange}
+            name="roleSwitch"
+          />
+        }
+        label={"admin"}
+        labelPlacement="start"
+        style={{ marginLeft: "auto", color: "white" }}
+      />
+      <div className="user-label">user</div>
+    </div>
   );
 }
