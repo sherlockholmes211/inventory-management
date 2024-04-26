@@ -8,7 +8,6 @@ export const inventorySlice = createSlice({
     status: "idle", // represents the loading state
   },
   reducers: {
-    // standard reducers here
     editItem: (state, action) => {
       const index = state.items.findIndex(
         (item) => item.id === action.payload.id

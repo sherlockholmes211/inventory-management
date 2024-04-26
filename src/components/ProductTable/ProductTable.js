@@ -38,10 +38,17 @@ export default function ProductTable({ products, admin, onEditClick }) {
               <div className="header-tag">Product Name</div>
             </TableCell>
             <TableCell>
+              <div className="header-tag">Category</div>
+            </TableCell>
+            <TableCell>
               <div className="header-tag">Price</div>
             </TableCell>
             <TableCell>
               <div className="header-tag">Quantity</div>
+            </TableCell>
+
+            <TableCell>
+              <div className="header-tag">Value</div>
             </TableCell>
             {admin && (
               <TableCell>
@@ -57,18 +64,25 @@ export default function ProductTable({ products, admin, onEditClick }) {
               style={{ opacity: product.disabled ? 0.5 : 1 }}
             >
               <TableCell>{product.name}</TableCell>
+              <TableCell>{product.category}</TableCell>
               <TableCell>{product.price}</TableCell>
               <TableCell>{product.quantity}</TableCell>
+              <TableCell>{product.value}</TableCell>
               {admin && (
                 <TableCell>
-                  <IconButton onClick={() => onEditClick(product.id)}>
+                  <IconButton
+                    onClick={() => {
+                      onEditClick(product.id);
+                      console.log("edit clicked");
+                    }}
+                  >
                     <EditIcon color={"success"} />
-                  </IconButton>
-                  <IconButton onClick={() => handleDelete(product.id)}>
-                    <DeleteIcon color={"error"} />
                   </IconButton>
                   <IconButton onClick={() => handleDisable(product.id)}>
                     <VisibilityOffIcon color={"primary"} />
+                  </IconButton>
+                  <IconButton onClick={() => handleDelete(product.id)}>
+                    <DeleteIcon color={"error"} />
                   </IconButton>
                 </TableCell>
               )}

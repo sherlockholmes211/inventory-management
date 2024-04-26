@@ -2,19 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import ProductTable from "../ProductTable";
 import EditProductModal from "../EditProductModal";
-import { fetchInventory } from "../../features/inventory/inventoryAPI";
 
 export default function AdminView() {
-  const dispatch = useDispatch();
   const products = useSelector((state) => state.inventory.items);
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
 
-  useEffect(() => {
-    dispatch(fetchInventory());
-  }, [dispatch]);
+  console.log("products", products);
 
   const handleEditClick = (id) => {
+    console.log("handleEditClick");
     setSelectedProductId(id);
     setEditModalOpen(true);
   };
@@ -28,7 +25,7 @@ export default function AdminView() {
         onEditClick={handleEditClick}
       />
 
-      {selectedProductId && (
+      {selectedProductId && editModalOpen && (
         <EditProductModal
           open={editModalOpen}
           handleClose={() => setEditModalOpen(false)}

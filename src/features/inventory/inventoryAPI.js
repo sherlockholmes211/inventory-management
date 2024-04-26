@@ -12,6 +12,9 @@ export const fetchInventory = createAsyncThunk(
       throw new Error("Failed to fetch inventory data");
     }
     const data = await response.json();
-    return data;
+    return data.map((item, index) => ({
+      ...item,
+      id: index + 1, // or you can use any unique part of your item, if available
+    }));
   }
 );
