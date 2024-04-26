@@ -1,9 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-// Define the base URL of the API
 const API_URL = "https://dev-0tf0hinghgjl39z.api.raw-labs.com/inventory";
 
-// Create an async thunk for fetching inventory data
 export const fetchInventory = createAsyncThunk(
   "inventory/fetchInventory",
   async () => {
@@ -14,7 +12,7 @@ export const fetchInventory = createAsyncThunk(
     const data = await response.json();
     return data.map((item, index) => ({
       ...item,
-      id: index + 1, // or you can use any unique part of your item, if available
+      id: index + 1,
     }));
   }
 );

@@ -20,6 +20,20 @@ export default function NavBar() {
             checked={isUser}
             onChange={handleRoleChange}
             name="roleSwitch"
+            sx={{
+              "& .MuiSwitch-switchBase.Mui-checked": {
+                color: "yellow",
+              },
+              "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+                backgroundColor: "yellow",
+              },
+              "& .MuiSwitch-track": {
+                backgroundColor: "lightyellow",
+              },
+              "& .MuiSwitch-switchBase": {
+                color: "lightyellow",
+              },
+            }}
           />
         }
         label={"admin"}

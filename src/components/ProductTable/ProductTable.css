@@ -43,7 +43,7 @@
 .header-tag{
   display: inline-block;
   padding: 4px;
-  border-radius: 4px;
+  border-radius: 10px;
   color:#deff55;
   background-color: black;
 }

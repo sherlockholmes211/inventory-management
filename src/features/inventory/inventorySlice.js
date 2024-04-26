@@ -5,7 +5,7 @@ export const inventorySlice = createSlice({
   name: "inventory",
   initialState: {
     items: [],
-    status: "idle", // represents the loading state
+    status: "idle",
   },
   reducers: {
     editItem: (state, action) => {
@@ -33,7 +33,7 @@ export const inventorySlice = createSlice({
       })
       .addCase(fetchInventory.fulfilled, (state, action) => {
         state.status = "succeeded";
-        state.items = action.payload; // assuming payload is the array of products
+        state.items = action.payload;
       })
       .addCase(fetchInventory.rejected, (state) => {
         state.status = "failed";

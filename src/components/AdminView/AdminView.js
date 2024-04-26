@@ -8,17 +8,13 @@ export default function AdminView() {
   const [editModalOpen, setEditModalOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState(null);
 
-  console.log("products", products);
-
   const handleEditClick = (id) => {
-    console.log("handleEditClick");
     setSelectedProductId(id);
     setEditModalOpen(true);
   };
 
   return (
     <div>
-      <h1>Admin View</h1>
       <ProductTable
         products={products}
         admin={true}

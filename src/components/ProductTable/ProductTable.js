@@ -10,13 +10,47 @@ import {
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
-
 import { useDispatch } from "react-redux";
 import {
   deleteItem,
   disableItem,
 } from "../../features/inventory/inventorySlice";
 import "./ProductTable.css";
+
+const HeaderCell = ({ children }) => (
+  <TableCell>
+    <div className="header-tag">{children}</div>
+  </TableCell>
+);
+
+const ActionCell = ({
+  admin,
+  product,
+  onEditClick,
+  handleDisable,
+  handleDelete,
+}) => (
+  <TableCell>
+    <IconButton
+      onClick={() => onEditClick(product.id)}
+      disabled={!admin || product.disabled}
+    >
+      <EditIcon color="success" />
+    </IconButton>
+    <IconButton
+      onClick={() => handleDisable(product.id)}
+      disabled={!admin || product.disabled}
+    >
+      <VisibilityOffIcon color="primary" />
+    </IconButton>
+    <IconButton
+      onClick={() => handleDelete(product.id)}
+      disabled={!admin || product.disabled}
+    >
+      <DeleteIcon color="error" />
+    </IconButton>
+  </TableCell>
+);
 
 export default function ProductTable({ products, admin, onEditClick }) {
   const dispatch = useDispatch();
@@ -33,33 +67,27 @@ export default function ProductTable({ products, admin, onEditClick }) {
     <div className="product-table">
       <Table>
         <TableHead>
-          <TableRow>
-            <TableCell>
-              <div className="header-tag">Product Name</div>
-            </TableCell>
-            <TableCell>
-              <div className="header-tag">Category</div>
-            </TableCell>
-            <TableCell>
-              <div className="header-tag">Price</div>
-            </TableCell>
-            <TableCell>
-              <div className="header-tag">Quantity</div>
-            </TableCell>
-
-            <TableCell>
-              <div className="header-tag">Value</div>
-            </TableCell>
-            <TableCell>
-              <div className="header-tag">Actions</div>
-            </TableCell>
+          <TableRow
+            style={{
+              backgroundColor: "#212124",
+            }}
+          >
+            <HeaderCell>Product Name</HeaderCell>
+            <HeaderCell>Category</HeaderCell>
+            <HeaderCell>Price</HeaderCell>
+            <HeaderCell>Quantity</HeaderCell>
+            <HeaderCell>Value</HeaderCell>
+            <HeaderCell>Actions</HeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {products.map((product) => (
             <TableRow
               key={product.id}
-              style={{ opacity: product.disabled ? 0.5 : 1 }}
+              style={{
+                backgroundColor: "#212124",
+                opacity: product.disabled || !admin ? 0.5 : 1,
+              }}
             >
               <TableCell>{product.name}</TableCell>
               <TableCell>{product.category}</TableCell>
@@ -67,29 +95,13 @@ export default function ProductTable({ products, admin, onEditClick }) {
               <TableCell>{product.quantity}</TableCell>
               <TableCell>{product.value}</TableCell>
 
-              <TableCell>
-                <IconButton
-                  onClick={() => {
-                    onEditClick(product.id);
-                    console.log("edit clicked");
-                  }}
-                  disabled={!!product.disabled || !admin}
-                >
-                  <EditIcon color={"success"} />
-                </IconButton>
-                <IconButton
-                  disabled={!!product.disabled || !admin}
-                  onClick={() => handleDisable(product.id)}
-                >
-                  <VisibilityOffIcon color={"primary"} />
-                </IconButton>
-                <IconButton
-                  disabled={!!product.disabled || !admin}
-                  onClick={() => handleDelete(product.id)}
-                >
-                  <DeleteIcon color={"error"} />
-                </IconButton>
-              </TableCell>
+              <ActionCell
+                admin={admin}
+                product={product}
+                onEditClick={onEditClick}
+                handleDisable={handleDisable}
+                handleDelete={handleDelete}
+              />
             </TableRow>
           ))}
         </TableBody>
